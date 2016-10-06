@@ -14,7 +14,16 @@ public class Spring_hibernate {
 	 */
 	@Test
 	public void test2(){
-		
+		try {
+			Customer c = new Customer();
+			c.setCust_name("吉泽");
+			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+			CustomerService service =(CustomerService) context.getBean("customerService");
+			service.save(c);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//1.测试依赖关系，
